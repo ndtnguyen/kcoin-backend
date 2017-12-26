@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "CNM",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "1412304",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "morgan": "^1.8.1",
+    "mustache": "^2.3.0",
+    "mysql": "^2.13.0",
+    "q": "^1.5.0",
+    "pg": "^7.4.0",
+    "md5": "^2.2.1"
+  }
+}
