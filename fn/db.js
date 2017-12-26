@@ -27,7 +27,7 @@ exports.load = function(sql) {
 
     pool.connect(function(err,client,done){
         done();
-        client.query(sql,function(err,result){
+        pool.query(sql,function(err,result){
               if (err)
                     d.reject(err);
                     // throw error;
@@ -62,11 +62,11 @@ exports.insert = function(sql) {
                 if (err) {
                     d.reject(err);
                 } else {
-                    d.resolve(value.insertId);
+                    d.resolve(value.rows);
+                    pool.end();
                 }
             });
         });
-
     return d.promise;
 }
 

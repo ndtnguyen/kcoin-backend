@@ -3,11 +3,11 @@ var mustache = require('mustache'),
     db = require('../fn/db');
 exports.insert = function(entity) {
     var sql = mustache.render(
-        "INSERT INTO public.user(email,password) VALUES('{{email}}','{{password}}')",
+        "INSERT INTO public.user(email,password) VALUES('{{email}}','{{password}}') RETURNING *",
         entity
     );
-
     return db.insert(sql);
+       
 }
 exports.loadDetail = function(email) {
 	var d = q.defer();
@@ -25,4 +25,13 @@ exports.loadDetail = function(email) {
     });
 
     return d.promise;
+}
+
+exports.insertAddress = function(entity) {
+    var sql = mustache.render(
+        "INSERT INTO public.address(id_address,private_key,public_key,ktc,id_user) VALUES('{{address}}','{{privatekey}}','{{publickey}}','0','{{user}}')",
+        entity
+    );
+    let result = db.insert(sql);
+    return result;
 }
