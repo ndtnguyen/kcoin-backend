@@ -37,7 +37,7 @@ exports.loadDetail = function(email) {
 
 exports.insertAddress = function(entity) {
     var sql = mustache.render(
-        "INSERT INTO public.address(id_address,private_key,public_key,ktc,id_user) VALUES('{{address}}','{{privatekey}}','{{publickey}}','0','{{user}}')",
+        "INSERT INTO public.address(id_address,private_key,public_key,kcoin_kd,kcoin_tt,id_user) VALUES('{{address}}','{{privatekey}}','{{publickey}}','0','0',{{user}}')",
         entity
     );
     let result = db.insert(sql);
