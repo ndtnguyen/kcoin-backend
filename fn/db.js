@@ -35,6 +35,7 @@ exports.load = function(sql) {
                      d.resolve(result.rows);
                 else
                     d.resolve(result);
+                    pool.end();
         });
        
     });
@@ -91,7 +92,8 @@ exports.update = function(sql) {
         if (err) {
             d.reject(err);
         } else {
-            d.resolve(value.changedRows);
+            d.resolve(value.rowCount);
+            pool.end();
         }
     });
     });

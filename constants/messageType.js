@@ -1,0 +1,1 @@
+exports.SIGNUP = 'SIGNUP';
